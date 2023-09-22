@@ -227,9 +227,8 @@ def _create_repository_execution_environment(rctx, python_interpreter):
     # Gather any available CPPFLAGS values
     cppflags = []
     cppflags.extend(_get_xcode_location_cflags(rctx))
-    fail(cppflags)
     cppflags.extend(_get_toolchain_unix_cflags(rctx, python_interpreter))
-
+    fail(cppflags)
     env = {
         "PYTHONPATH": _construct_pypath(rctx),
         CPPFLAGS: " ".join(cppflags),
